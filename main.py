@@ -14,9 +14,26 @@ severe_dehydration = "Severe dehydration"
 some_dehydration = "Some dehydration"
 no_dehydration = "No dehydration"
 
+skin_prompt = "How is the patient's skin when you pinch it?\n - 1: Normal skin pinch\n - 2: Slow skin pinch\n"
+
+
+patients_and_diagnoses = [
+    "Mike - Severe dehydration",
+    "Sally - No dehydration",
+    "Kate - Some dehydration"
+]
+
+
+def save_new_diagnosis(name, diagnosis):
+    final_diagnosis = name + " - " + diagnosis
+    patients_and_diagnoses.append(final_diagnosis)
+    print("Final Diagnosis:", final_diagnosis, "\n")
+
 
 def list_patients():
     print('List all patients and diagnoses')
+    for patient in patients_and_diagnoses:
+        print(patient)
 
 
 def assess_eyes(eyes):
@@ -29,8 +46,12 @@ def assess_eyes(eyes):
         return severe_dehydration
 
 
-def assess_skin():
+def assess_skin(skin):
     print('Assessing skin appearance')
+    if skin == "1":
+        return some_dehydration
+    elif skin == "2":
+        return severe_dehydration
 
 
 def assess_appearance():
@@ -39,7 +60,8 @@ def assess_appearance():
         eyes = input(eye_prompt)
         return assess_eyes(eyes)
     elif appearance == "2":
-        assess_skin()
+        skin = input(skin_prompt)
+        return assess_skin(skin)
 
 
 def start_new_diagnosis():
@@ -52,7 +74,8 @@ def start_new_diagnosis():
         b.If irritable/lethargic, move to the skin assessment
     """
     name = input(name_prompt)
-    assess_appearance()
+    diagnosis = assess_appearance()
+    save_new_diagnosis(name, diagnosis)
 
 
 def main():
