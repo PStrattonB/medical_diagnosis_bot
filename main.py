@@ -23,8 +23,58 @@ patients_and_diagnoses = [
     "Kate - Some dehydration"
 ]
 
+error_message = "Could not save patient and diagnosis due to invalid input"
+
+
+def test_assess_skin():
+    print(assess_skin("1") == some_dehydration)
+    print(assess_skin("2") == severe_dehydration)
+    print(assess_skin("3") == "")
+
+
+def test_assess_eyes():
+    print(assess_eyes("1") == no_dehydration )
+    print(assess_eyes("2") == severe_dehydration)
+    print(assess_eyes("") == "")
+
+
+def test_assess_appearance():
+    print(assess_appearance())
+
+
+def test_save_new_diagnosis():
+    save_new_diagnosis("", "")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+
+    save_new_diagnosis("James", "")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+    save_new_diagnosis("", "No dehydration")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration"
+    ])
+    save_new_diagnosis("James", "Some dehydration")
+    print(patients_and_diagnoses == [
+        "Mike - Severe dehydration",
+        "Sally - No dehydration",
+        "Kate - Some dehydration",
+        "James - Some dehydration"
+    ])
+
 
 def save_new_diagnosis(name, diagnosis):
+    if name == "" or diagnosis == "":
+        print(error_message)
+        return
     final_diagnosis = name + " - " + diagnosis
     patients_and_diagnoses.append(final_diagnosis)
     print("Final Diagnosis:", final_diagnosis, "\n")
@@ -39,11 +89,11 @@ def list_patients():
 def assess_eyes(eyes):
     print('Assessing eye appearance')
     if eyes == "1":
-        print('no dehyd')
         return no_dehydration
     elif eyes == "2":
-        print('severe dehyd')
         return severe_dehydration
+    else:
+        return ""
 
 
 def assess_skin(skin):
@@ -52,6 +102,8 @@ def assess_skin(skin):
         return some_dehydration
     elif skin == "2":
         return severe_dehydration
+    else:
+        return ""
 
 
 def assess_appearance():
@@ -62,6 +114,8 @@ def assess_appearance():
     elif appearance == "2":
         skin = input(skin_prompt)
         return assess_skin(skin)
+    else:
+        return ""
 
 
 def start_new_diagnosis():
@@ -93,5 +147,9 @@ def main():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
+    # test_assess_skin()
+    # test_assess_eyes()
+    # test_assess_appearance()
+    # test_save_new_diagnosis()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

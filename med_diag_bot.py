@@ -45,3 +45,21 @@ This diagram outlines 3 sets of logic that we’ll need to implement:
     Are the patient’s eyes normal/slightly sunken or are they very sunken?
     Is the patient’s skin pinch normal or slow?
 """
+
+# Testing Phase
+
+"""
+Unit tests test the performance of individual functions or small blocks of code. These are used to model all possible 
+input-output scenarios and ensure that each individual part of the code will hold up under expected and unexpected 
+conditions. When writing the tests for an individual function or block of code, we want to consider all possible 
+input-output combinations to make sure that the code is robust and has no single point of failure. Unit tests provide a 
+quantitative measure of how well a program is performing.
+
+Integration tests test how functions work together when performing a task or set of functionality. They are used to 
+target procedures or overarching functionality and consider the results of a series of functions running together rather 
+than looking at each individual function. Integration tests provide a more qualitative measure of how well a program is 
+performing.
+
+
+
+"""
