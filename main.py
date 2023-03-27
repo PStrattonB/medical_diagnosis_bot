@@ -1,7 +1,4 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Test project done for now.
 
 welcome_prompt = "Welcome Doctor, what would you like to do today?\n - To List all patients, press 1\n" \
                  " - To run a new diagnosis  press 2\n - To quit, press q\n"
@@ -151,5 +148,3 @@ if __name__ == '__main__':
     # test_assess_eyes()
     # test_assess_appearance()
     # test_save_new_diagnosis()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
